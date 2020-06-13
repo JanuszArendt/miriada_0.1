@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Welcome Miriada Web Application</h1>
+<br><br>
+<a href="/login"> Go to login ....</a>
+<br>
+<a href="/user"> Go to user ....</a>
+
+<div sec:authorize="isAuthenticated()">
+    This content is only shown to authenticated users.
+</div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    This content is only shown to administrators.
+</div>
+<div sec:authorize="hasRole('ROLE_USER')">
+    This content is only shown to users.
+</div>
+</body>
+</html>
